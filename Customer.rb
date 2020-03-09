@@ -20,14 +20,9 @@ class Customer
   end
 
 <<<<<<< HEAD
-  def return(bike)
-    bike.make_rentable()
-    @rented.delete_at(@rented.index(bike))
-=======
   def return(object)
     object.return_back()
     @rented.delete_at(@rented.index(object))
->>>>>>> origin
   end
 
   def charge(payment)
