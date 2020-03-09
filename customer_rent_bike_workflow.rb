@@ -7,8 +7,11 @@ class BikeReservationWorkflow
 
   def run
     bike = Bike.new('Mountain')
-    cx = Customer.new('Peter', 'Mathew', 333333)
-    cx.rent(bike)   
-    cx.return(bike)
+    kayak = Kayak.new('Inflatable')
+    cust = Customer.new('Peter', 'Mathew', 333333)
+    cust.rent(bike)   
+    cust.return(bike)
+    cust.rent(kayak)
+    cust.return(kayak)
   end
 end

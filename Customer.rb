@@ -10,18 +10,24 @@ class Customer
     @credit_card = credit_card
     @rented = []
   end
-  def rent(bike)
-    if bike.is_rentable()
-      bike.rentout()
+  def rent(object)
+    if object.is_rentable()
+      object.rentout()
       @rented << bike
     else
-      puts("the bike is not rentable")
+      puts("This is not rentable")
     end
   end
 
+<<<<<<< HEAD
   def return(bike)
     bike.make_rentable()
     @rented.delete_at(@rented.index(bike))
+=======
+  def return(object)
+    object.return_back()
+    @rented.delete_at(@rented.index(object))
+>>>>>>> origin
   end
 
   def charge(payment)
