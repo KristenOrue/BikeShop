@@ -8,7 +8,7 @@ class Bike
     @id = id
     @tires = 5
     @chain = 5
-
+    @rate = 1
 
   end
 
@@ -22,7 +22,7 @@ class Bike
     @rentable = false
   end
 
-  def return_back
+  def make_rentable
     puts("bike has been returned")
     @rentable = true
   end

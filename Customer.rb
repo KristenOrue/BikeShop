@@ -18,7 +18,7 @@ class Customer
   end
 
   def return(bike)
-    bike.return_back()
+    bike.make_rentable()
     @rented.delete_at(@rented.index(bike))
   end
 end

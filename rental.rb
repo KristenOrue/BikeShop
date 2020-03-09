@@ -10,19 +10,21 @@ class Rental
 
   def return(time)
     @return_time = time
+    puts "returned at #{time}"
   end
 
   def charge
-    @totalprice = (return_time - start_date) * rental_object.rate
+    @totalprice = (@return_time - @start_date) * @rental_object.rate
     self.latesurcharge
-    customer.funds -= @totalprice
+    customer.credit_card -= @totalprice
+    puts "charging customer #{@totalprice}"
   end
 
   def latesurcharge
-    if return_date + 30 > end_date
+    if @return_time + 1 > end_date
       @totalprice += RENTAL_FEE
       if @latenotice == true
-	@totalprice -= .5 * RENTAL_FEE
+	@totalprice -= 1
       end
     end
   end

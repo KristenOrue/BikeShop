@@ -14,4 +14,8 @@ class Employee
         
     end
 
+    def report_issues(object)
+      object.make_rentable
+    end
+
 end
