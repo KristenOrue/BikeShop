@@ -1,4 +1,9 @@
+require_relative 'Customer'
+
 class Rental
+
+  attr_reader :rental_object
+
   RENTAL_FEE = 2
   
   def initialize(start_date, end_date, rental_object, customer)
@@ -13,15 +18,14 @@ class Rental
     puts "returned at #{time}"
   end
 
-  def charge
+  def pay_up
     @totalprice = (@return_time - @start_date) * @rental_object.rate
-    self.latesurcharge
-    customer.credit_card -= @totalprice
-    puts "charging customer #{@totalprice}"
+    latesurcharge
+    @customer.charge(@totalprice)
   end
 
   def latesurcharge
-    if @return_time + 1 > end_date
+    if @return_time + 1 > @end_date
       @totalprice += RENTAL_FEE
       if @latenotice == true
 	@totalprice -= 1

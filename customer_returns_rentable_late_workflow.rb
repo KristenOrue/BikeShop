@@ -1,4 +1,5 @@
 require_relative 'employee'
+require_relative 'rental'
 class CustomerReturnsRentableLateWorkflow
   
   def initialize(rental, employee, return_time)
@@ -9,8 +10,8 @@ class CustomerReturnsRentableLateWorkflow
 
   def run
     @rental.return(@return_time)
-    @rental.charge
-    @employee.report_issues(@rental.object)
+    @rental.pay_up
+    @employee.report_issues(@rental.rental_object)
   end
 
 end

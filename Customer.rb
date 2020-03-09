@@ -1,6 +1,8 @@
 require_relative 'Bike'
 
 class Customer
+  attr_reader :credit_card
+
   def initialize(username, password, credit_card)
     puts("created #{username} user")
     @username = username
@@ -20,5 +22,10 @@ class Customer
   def return(bike)
     bike.make_rentable()
     @rented.delete_at(@rented.index(bike))
+  end
+
+  def charge(payment)
+    @credit_card -= payment
+    puts "customer charged #{payment}"
   end
 end
